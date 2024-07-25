@@ -47,6 +47,10 @@ Configurar nuestro proyecto para que trabaje con Handlebars y websocket.
    npm start
 
 ## Endpoints
+1. Para probar la aplicación, deberá de ejecutar en el navegador:
+   ```sh
+   http://localhost:8080
+
 ### General
 - **/ : GET** Este método permite redireccionar a la página raiz del servidor
 - **/home : GET** Este método permite redireccionar a la página principal
