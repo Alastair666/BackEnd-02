@@ -81,15 +81,6 @@ const productos = [
       price: 45,
       stock: 36,
       category: 'Accesorios'
-    },
-    {
-      pid: 9,
-      title: 'a',
-      description: 'a',
-      code: 'a',
-      price: 1,
-      stock: 2,
-      category: 'cat'
     }
   ]
 /**  
@@ -147,27 +138,29 @@ export function agregaProducto(title, description, code, price, stock, category)
     catch (ex){
         console.error(ex, `Error al guardar el producto ${description}`)
     }
-    finally{
-        console.log(productos)
-    }
 }
 /**  
  * Deberá de traer solo el producto con el ID especificado
  * **/
 export function eliminaProducto(pid){
-    try
+  //console.log(pid)
+  try
     {
         const prod_id = parseInt(pid)
+        //console.log(prod_id)
         if (prod_id > 0){
             const prod = productos.find((p)=> p.pid === prod_id)
             if (prod){
-                productos = productos.filter((p)=> p.pid !== prod_id)
+                const prod_restantes = productos.filter((p)=> p.pid !== prod_id)
+                productos.splice(0, productos.length)
+                productos.push(...prod_restantes)
                 /*/Guardando archivo
                 fs.writeFile(pathProducts, JSON.stringify(productos, null, 2))//*/
-                console.log(`Producto '${prod.title}' guardado exitosamente`)
+                console.log(`Producto '${prod.title}' eliminado exitosamente`)
             }
             else
                 console.error(`El Producto con el ID ${prod_id} no fue localizado`)
+
         }
         else
             console.error(`Debe establecer el ID del producto para actualizar`)

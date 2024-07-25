@@ -22,9 +22,6 @@ app.use(express.static(__dirname + '/public'))
 const httpServer = app.listen(PORT, ()=>{ console.log(`Server running on port ${PORT}`) })
 const socketServer = new Server(httpServer)
 
-// Integrando "router" 
-app.use("/", viewsRouter)
-
 // Se crea evento de escucha
 socketServer.on("connection", socket => {
     const timestamp = Date.now()
@@ -38,3 +35,6 @@ socketServer.on("connection", socket => {
         console.log(data)
     })
 })
+
+// Integrando "router" 
+app.use("/", viewsRouter(socketServer))

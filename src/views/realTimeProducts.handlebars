@@ -4,14 +4,15 @@
         <table class="table table-bordered table-responsive table-hover">
             <thead>
                 <tr class="bg-dark">
-                    <th scope="col" class="text-white">#</th>
-                    <th scope="col" class="text-white">Titulo</th>
-                    <th scope="col" class="text-white">Descripción</th>
-                    <th scope="col" class="text-white">Cod. Prod</th>
-                    <th scope="col" class="text-white">Precio</th>
-                    <th scope="col" class="text-white">Estatus</th>
-                    <th scope="col" class="text-white">Stock</th>
-                    <th scope="col" class="text-white">Categoria</th>
+                    <th scope="col" class="text-grey">#</th>
+                    <th scope="col" class="text-grey">Titulo</th>
+                    <th scope="col" class="text-grey">Descripción</th>
+                    <th scope="col" class="text-grey">Cod. Prod</th>
+                    <th scope="col" class="text-grey">Precio</th>
+                    <th scope="col" class="text-grey">Estatus</th>
+                    <th scope="col" class="text-grey">Stock</th>
+                    <th scope="col" class="text-grey">Categoria</th>
+                    <th scope="col" class="text-grey">--</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +26,7 @@
                     <td>{{this.status}}</td>
                     <td>{{this.stock}}</td>
                     <td>{{this.category}}</td>
+                    <td><button id={{this.pid}} name="elimina{{this.pid}}" value="Elimina" class="btn btn-danger mb-1 active-scale-down btn-delete-confirm"><i class="fa fa-trash"></i></button> </td>
                 </tr>
                 {{/each}}
             </tbody>
@@ -89,6 +91,6 @@
         </div>
     </div>
 </form>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/realTimeProducts.js"></script>
