@@ -1,0 +1,50 @@
+<div class="card-body m-0 p-3">
+    <h4 class="mb-3">Lista de Productos Agregados</h4>
+    <table class="table table-bordered table-responsive table-hover">
+        <thead>
+            <tr class="bg-dark">
+                <th scope="col" class="text-white">#</th>
+                <th scope="col" class="text-white">Titulo</th>
+                <th scope="col" class="text-white">Descripción</th>
+                <th scope="col" class="text-white">Cod. Prod</th>
+                <th scope="col" class="text-white">Precio</th>
+                <th scope="col" class="text-white">Estatus</th>
+                <th scope="col" class="text-white">Stock</th>
+                <th scope="col" class="text-white">Categoria</th>
+                <th scope="col" class="text-white">--</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+            <tr>
+                <th scope="row" class="text-end">{{this.pid}}</th>
+                <td>{{this.title}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.code}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.status}}</td>
+                <td>{{this.stock}}</td>
+                <td>{{this.category}}</td>
+                <td><button id={{this.pid}} name="elimina{{this.pid}}" value="Elimina" class="btn btn-danger mb-1 active-scale-down"></button> </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    
+</div>
+<h4>Da de alta tu producto nuevo</h4>
+<div class="row">
+    <div class="card-body h-100">
+        <div class="row">
+
+        </div>
+    </div>
+    <div class="card-footer border-0 p-2 d-flex justify-content-end align-items-right align-items-center">
+        <div class="btn-group m-0 p-0">
+            <input type="submit" name="btnAltaProd" value="Alta" id="btnAltaProd" tabindex="2" class="btn btn-secondary mb-1 active-scale-down">
+        </div>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/home.js"></script>

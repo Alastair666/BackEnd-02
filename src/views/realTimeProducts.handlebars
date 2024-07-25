@@ -1,0 +1,94 @@
+<form id="altaProducto">
+    <div class="card-body m-0 p-3">
+        <h4 class="mb-3">Lista de Productos Agregados</h4>
+        <table class="table table-bordered table-responsive table-hover">
+            <thead>
+                <tr class="bg-dark">
+                    <th scope="col" class="text-white">#</th>
+                    <th scope="col" class="text-white">Titulo</th>
+                    <th scope="col" class="text-white">Descripción</th>
+                    <th scope="col" class="text-white">Cod. Prod</th>
+                    <th scope="col" class="text-white">Precio</th>
+                    <th scope="col" class="text-white">Estatus</th>
+                    <th scope="col" class="text-white">Stock</th>
+                    <th scope="col" class="text-white">Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <th scope="row" class="text-end">{{this.pid}}</th>
+                    <td>{{this.title}}</td>
+                    <td>{{this.description}}</td>
+                    <td>{{this.code}}</td>
+                    <td>{{this.price}}</td>
+                    <td>{{this.status}}</td>
+                    <td>{{this.stock}}</td>
+                    <td>{{this.category}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <h4>Da de alta tu producto nuevo</h4>
+        <div class="row">
+            <div class="card-body h-100">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row mb-2">
+                            <label for="txtTitulo" class="col-sm-3 col-form-label">Titulo</label>
+                            <div class="col-sm-7">
+                                <input name="txtTitulo" type="text" maxlength="100" id="txtTitulo" tabindex="1"
+                                    class="form-control form-control-sm validate[required]" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label for="txtDescripcion" class="col-sm-3 col-form-label">Descripción</label>
+                            <div class="col-sm-7">
+                                <input name="txtDescripcion" type="text" maxlength="150" id="txtDescripcion"
+                                    tabindex="2" class="form-control form-control-sm validate[required]"
+                                    autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label for="txtCodigo" class="col-sm-3 col-form-label">Código</label>
+                            <div class="col-sm-7">
+                                <input name="txtCodigo" type="text" maxlength="20" id="txtCodigo" tabindex="3"
+                                    class="form-control form-control-sm validate[required]" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label for="txtPrecio" class="col-sm-3 col-form-label">Precio</label>
+                            <div class="col-sm-7">
+                                <input name="txtPrecio" type="number" maxlength="20" id="txtPrecio" tabindex="4"
+                                    class="form-control form-control-sm validate[required]" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label for="txtStock" class="col-sm-3 col-form-label">Stock</label>
+                            <div class="col-sm-7">
+                                <input name="txtStock" type="number" maxlength="10" id="txtStock" tabindex="5"
+                                    class="form-control form-control-sm validate[required]" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <label for="txtCategoria" class="col-sm-3 col-form-label">Categoria</label>
+                            <div class="col-sm-7">
+                                <input name="txtCategoria" type="text" maxlength="50" id="txtCategoria" tabindex="7"
+                                    class="form-control form-control-sm validate[required]" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer border-0 p-2 d-flex justify-content-end align-items-right align-items-center">
+                <div class="btn-group m-0 p-0">
+                    <button id="btnGuardarProd" class="btn btn-secondary mb-1 active-scale-down"
+                        type="submit">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/realTimeProducts.js"></script>
